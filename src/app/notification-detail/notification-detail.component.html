@@ -1,6 +1,8 @@
-<div *ngIf="notification">
+<div *ngIf="notification; else elseBlock">
   <h2> {{notification.id}} Details</h2>
   <div>
     <pre>{{notification.parsedBody() | json}}</pre>
   </div>
 </div>
+
+<ng-template #elseBlock> No notification loaded </ng-template>

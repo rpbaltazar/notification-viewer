@@ -2,12 +2,14 @@
   <h2> Recent Notifications </h2>
   <mat-spinner *ngIf="recentNotifications.length === 0"></mat-spinner>
 
-  <mat-card [class.selected]="notification == selectedNotification" *ngFor="let notification of recentNotifications" style="margin-top:10px;" (click)="onSelect(notification)">
-    <mat-card-header>
-        <mat-card-title>{{notification.id}}</mat-card-title>
-        <mat-card-subtitle>{{notification.receivedAt}}</mat-card-subtitle>
-    </mat-card-header>
-  </mat-card>
-
-  <app-notification-detail [notification]="selectedNotification"></app-notification-detail>
+  <mat-sidenav-container style="min-height: 100vh">
+    <mat-sidenav mode="side" disableClose opened>
+      <mat-nav-list>
+        <mat-list-item *ngFor="let notification of recentNotifications" (click)="onSelect(notification)">
+          <p>{{notification.id}} - {{notification.receivedAt}}</p>
+        </mat-list-item>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content style = "padding: 20px; margin-left: 200px;"> <app-notification-detail [notification]="selectedNotification"></app-notification-detail> </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>
