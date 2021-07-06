@@ -1,0 +1,11 @@
+.mat-card.selected {
+  background: #ddd;
+}
+
+.mat-card.selected .mat-card-title {
+  color: #424242;
+}
+
+.mat-card.selected .mat-card-subtitle {
+  color: #424242;
+}
