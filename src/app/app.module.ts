@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -28,7 +27,6 @@ import { NotificationDetailComponent } from './notification-detail/notification-
     HttpClientModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    MatIconModule,
     MatCardModule,
     MatButtonModule,
     MatSidenavModule,
