@@ -1,22 +1,22 @@
 export interface INotification {
   id: number;
   receivedAt: string; //date
-  rawBody: string;
+  body: string;
 }
 
 export class Notification implements INotification {
   id: number;
   receivedAt: string;
-  rawBody: string;
+  body: string;
 
   constructor(rawNotif: INotification) {
     this.id = rawNotif.id;
     this.receivedAt = rawNotif.receivedAt;
-    this.rawBody = rawNotif.rawBody;
+    this.body = rawNotif.body;
   }
 
   parsedBody(): JSON {
-    console.log(this.rawBody);
-    return JSON.parse(this.rawBody);
+    console.log(this.body);
+    return JSON.parse(this.body);
   }
 }
