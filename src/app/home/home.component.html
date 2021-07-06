@@ -1,4 +1,5 @@
 <div style="padding: 13px;">
+  <h2> Recent Notifications </h2>
   <mat-spinner *ngIf="recentNotifications.length === 0"></mat-spinner>
 
   <mat-card [class.selected]="notification == selectedNotification" *ngFor="let notification of recentNotifications" style="margin-top:10px;" (click)="onSelect(notification)">
@@ -8,10 +9,5 @@
     </mat-card-header>
   </mat-card>
 
-  <div *ngIf="selectedNotification">
-    <h2> {{selectedNotification.id}} Details</h2>
-    <div>
-      <span>content: </span>{{selectedNotification.rawBody}}
-    </div>
-  </div>
+  <app-notification-detail [notification]="selectedNotification"></app-notification-detail>
 </div>
