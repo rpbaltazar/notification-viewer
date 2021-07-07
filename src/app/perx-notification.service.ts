@@ -1,18 +1,17 @@
 import { Injectable } from '@angular/core';
-import { throwError, pipe } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
-import { Notification } from './notification';
+import { environment } from './../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PerxNotificationService {
   private notificationsUrl = '/notifications';
+  private API_URL = environment.apiUrl;
 
   constructor(private http: HttpClient) { }
 
   getNotifications() {
-    return this.http.get('http://localhost:4000/api' + this.notificationsUrl)
+    return this.http.get(this.API_URL + this.notificationsUrl)
   }
 }

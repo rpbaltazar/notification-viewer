@@ -20,7 +20,6 @@ export class HomeComponent implements OnInit {
   getNotifications(): void {
     this.perxNotificationService.getNotifications()
         .subscribe((data:any) => {
-          console.log(data);
           this.recentNotifications = data.data.map((notif:Notification) => new Notification(notif));
         });
   }
