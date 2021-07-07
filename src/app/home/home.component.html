@@ -1,16 +1,18 @@
 <div style="padding: 13px;">
   <h2> Recent Notifications </h2>
-  <mat-spinner *ngIf="recentNotifications.length === 0"></mat-spinner>
+  <mat-spinner *ngIf="recentNotifications.length === 0; else elseBlock"></mat-spinner>
 
-  <mat-sidenav-container style="min-height: 100vh">
-    <mat-sidenav mode="side" disableClose opened>
-      <mat-nav-list>
-        <mat-list-item *ngFor="let notification of recentNotifications" (click)="onSelect(notification)">
-          <p>{{notification.id}}</p>
-          <p>{{notification.receivedAt}}</p>
-        </mat-list-item>
-      </mat-nav-list>
-    </mat-sidenav>
-    <mat-sidenav-content style = "padding: 20px; margin-left: 330px;"> <app-notification-detail [notification]="selectedNotification"></app-notification-detail> </mat-sidenav-content>
-  </mat-sidenav-container>
+  <ng-template #elseBlock>
+    <mat-sidenav-container style="min-height: 100vh">
+      <mat-sidenav mode="side" disableClose opened>
+        <mat-nav-list>
+          <mat-list-item *ngFor="let notification of recentNotifications" (click)="onSelect(notification)">
+            <p>{{notification.id}}</p>
+            <p>{{notification.receivedAt}}</p>
+          </mat-list-item>
+        </mat-nav-list>
+      </mat-sidenav>
+      <mat-sidenav-content style = "padding: 20px; margin-left: 330px;"> <app-notification-detail [notification]="selectedNotification"></app-notification-detail> </mat-sidenav-content>
+    </mat-sidenav-container>
+  </ng-template>
 </div>
