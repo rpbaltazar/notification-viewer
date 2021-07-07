@@ -1,11 +1,11 @@
 export class Notification {
   id: number;
-  receivedAt: string;
+  receivedAt: Date;
   body: string;
 
   constructor(rawNotif:any) {
     this.id = rawNotif.id;
-    this.receivedAt = rawNotif.receivedAt;
+    this.receivedAt = new Date(rawNotif.received_at);
     this.body = rawNotif.body;
   }
 }
