@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
-import { INotification } from './notification';
+import { throwError, pipe } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 import { Notification } from './notification';
-import { Observable, of } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +12,7 @@ export class PerxNotificationService {
 
   constructor(private http: HttpClient) { }
 
-  getNotifications(): Observable<INotification[]>  {
-    return this.http.get<INotification[]>('http://localhost:3000' + this.notificationsUrl);
+  getNotifications() {
+    return this.http.get('http://localhost:4000/api' + this.notificationsUrl)
   }
 }

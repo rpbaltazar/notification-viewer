@@ -1,7 +1,7 @@
 <div *ngIf="notification; else elseBlock">
   <h2> {{notification.id}} Details</h2>
   <div>
-    <pre>{{notification.parsedBody() | json}}</pre>
+    <pre>{{notification.body | json}}</pre>
   </div>
 </div>
 

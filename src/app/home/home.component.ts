@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { INotification, Notification } from '../notification';
+import { Notification } from '../notification';
 import { PerxNotificationService } from '../perx-notification.service';
 
 @Component({
@@ -19,8 +19,9 @@ export class HomeComponent implements OnInit {
 
   getNotifications(): void {
     this.perxNotificationService.getNotifications()
-        .subscribe((notifications: INotification[]) => {
-          this.recentNotifications = notifications.map((n) => { return new Notification(n)});
+        .subscribe((data:any) => {
+          console.log(data);
+          this.recentNotifications = data.data.map((notif:Notification) => new Notification(notif));
         });
   }
 
